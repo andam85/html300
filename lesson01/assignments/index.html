@@ -4,31 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Assignment 1 - Part 2 Example</title>
+    <title>Assignment 1 - Part 2 Homework</title>
     <!-- jQuery CDN -->
-    <script 
-        src="https://code.jquery.com/jquery-3.3.1.js" 
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous">
     </script>
     <!-- Local Files -->
     <script src="scripts.js"></script>
+
     <link rel="stylesheet" href="style.css">
 </head>
-
-<body>
+<!-- onload is to load up all the predefined arrays in the javascript into the html body -->
+<body onload="arraydisplay()">
     <main class="main">
         <h1>Using ES6+ Methods</h1>
         <section class="input-set">
-            <!-- Input -->
-            <input type="text" class="input">
-            <!-- Submit for Input -->
-            <input class="submit" type="submit"></input>
-            <!-- Result markup with hook for answer -->
-            <p class="markup">My total with reduce is now: <span class="sum"></span></p>
+            <div class="set1">
+              <p>This is to test the find function, enter a value between the first value of the array and the last.
+                <p class= dat1></p>
+              </p>
+              <input type="text" class="input1">
+              <input class="submit1" type="submit"></input>
+              <p> This is the first value greater than your input: <span class="result1"></span></p>
+            </div>
+            <div class="set2">
+              <p>This is to test the map function, we will start with this array:
+                <p class= dat2></p>
+                a value you put bellow and submit will multiply each of the items in the array</p>
+              <input type="text" class="input2">
+              <input class="submit2" type="submit"></input>
+              <p> Your multiplied array is now: <span class="result2"></span></p>
+            </div>
+            <div class="set3">
+              <p>This is to test the includes function, we will start with this array:
+                <p class= dat3></p>
+                a value you put bellow and submit will be checked if it is included in the array</p>
+              <input type="text" class="input3">
+              <input class="submit3" type="submit"></input>
+              <p> The value you input is included in the array: <span class="result3"></span></p>
+            </div>
+            <div class="set4">
+              <p>This is to test the filter function, we will start with this array:
+                <p class= dat4></p>
+                a value you put bellow and submit will filter the array for values greater than the input</p>
+              <input type="text" class="input4">
+              <input class="submit4" type="submit"></input>
+              <p> These values are greater than your input: <span class="result4"></span></p>
+            </div>
         </section>
-       
-        
+        </section>
+
+
+
     </main>
 </body>
 
