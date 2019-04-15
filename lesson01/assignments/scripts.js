@@ -70,7 +70,7 @@ $(function () {
           // Verify the user gave us a real number
           if (!isNaN(num)) {
             // Use includes to check if the value inputted is inluded in the array
-            const includes1= data3.includes(val)
+            const includes1= data3.includes(num)
             // Add our new total to the page
             result3.text(includes1);
             // Reset the input value to nothing
