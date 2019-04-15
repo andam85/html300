@@ -27,7 +27,7 @@ $(function () {
         // Verify the user gave us a real number
         if (!isNaN(num)) {
           // Use find fuction to retrieve first value that is greater than the input.
-          const find1 = data1.find(x => x > val)
+          const find1 = data1.find(x => x > num)
           // Add our new total to the page
           result1.text(find1);
           // Reset the input value to nothing
@@ -49,7 +49,7 @@ $(function () {
         // Verify the user gave us a real number
         if (!isNaN(num)) {
           // Use map function to multiply array by input value
-          const map1= data2.map(x => x * val)
+          const map1= data2.map(x => x * num)
           // Add our new total to the page
           result2.text(map1);
           // Reset the input value to nothing
@@ -91,7 +91,7 @@ $(function () {
           // Verify the user gave us a real number
           if (!isNaN(num)) {
             // Use filter function to filter for all values in the array greater than the input value
-            const filter1= data4.filter(number => parseInt(number) > val)
+            const filter1= data4.filter(number => parseInt(number) > num)
             // Add our new total to the page
             result4.text(filter1);
             // Reset the input value to nothing
