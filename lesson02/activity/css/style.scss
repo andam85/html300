@@ -4,3 +4,9 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+.static-block{
+  &_title {
+    margin: 4 rem;
+    
+  }
+}
