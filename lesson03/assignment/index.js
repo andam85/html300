@@ -1,4 +1,4 @@
-[{
+const profiles = [{
   "name": "Steve Smith",
   "jobTitle": "Project Manage",
   "Company": "Front End Dev Co",
@@ -37,3 +37,27 @@
   "LinkedInUrl": "mJordan.linkedinprofile.com"
 }
 ]
+
+let profilesHTML = profiles.map(function(el) {
+  let profile =
+  `<div class="main">
+      <div class="main__title-tile">
+        <img class="main__title-tile__img" src="./img/unsplash-headshot.jpg" alt="headshot image">
+        <h2>${el.name}</h2>
+        <h3>${el.jobTitle}</h3>
+      </div>
+      <div class="main__info-tile">
+        <p><strong>Company: </strong>${el.Company}</p>
+        <p><strong>Experience: </strong>${el.Experience}</p>
+        <p><strong>School: </strong>${el.School}</p>
+        <p><strong>Major: </strong>${el.Major}</p>
+        <p><strong>Email: </strong>${el.Email}</p>
+        <p><i class="fab fa-linkedin"></i>${el.LinkedInUrl}</p>
+      </div>
+  </div>`
+  ;
+});
+
+console.log(profilesHTML);
+
+$(".template-hook").append(profilesHTML);
