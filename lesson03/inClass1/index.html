@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script type="text/javascript" src="./script.js"></script>
+
+  <script type="text/javascript">
+    // const person ={
+    //   name: "An",
+    //   job: "dev",
+    //   pet: "dog",
+    // }
+    // console.log(person.greeting())
+    // console.log(person["name"])
+    // console.log(person["job"])
+    // console.log(person.job)
+
+    // const mac = {screenLarge: "Desktop", screenMedium: "Laptop", screenSmall: "Tablet", screenExtraSmall: "Phone"};
+    //
+    //   // console.log(Object.keys(mac));
+    //   console.log(Object.entries(mac));
+    //   //
+    //   // for( const screen in mac){      console.log(mac[screen])}
+// $(function(){
+
+const cars = [
+  {"make": 'Ford', "model":'Mustang', "year":2018, "color":'black'},
+  {"make": 'Chevy', "model":'Corvette', "year":1984, "color":'red'},
+  {"make": 'Jeep', "model":'Wrangler', "year":1999, "color":'silver'},
+];
+
+let carsHTML = cars.map(function(el){
+    return car = `
+  <article class="car">
+    <ul>
+      <li class="car_make">${el.make}</li>
+      <li class="car_model">${el.model}</li>
+      <li class="car_details">Color:${el.color}</li>
+      <li class="car_details">Year:${el.year}</li>
+    </ul>
+  </article>
+    `
+});
+$(".cars").append(carsHTML);
+console.log(cars)
+// })
+
+  </script>
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
