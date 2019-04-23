@@ -1,4 +1,7 @@
-const profiles = [{
+$(function () {
+
+// named this object profiles so that I can use the array.map() method
+  const profiles = [{
   "name": "Steve Smith",
   "jobTitle": "Project Manage",
   "Company": "Front End Dev Co",
@@ -37,12 +40,13 @@ const profiles = [{
   "LinkedInUrl": "mJordan.linkedinprofile.com"
 }
 ]
-
+// school was the shortest thing I could find that drives the images
+// had to add return profile to the end of the function else the results came back null
 let profilesHTML = profiles.map(function(el) {
   let profile =
   `<div class="main">
       <div class="main__title-tile">
-        <img class="main__title-tile__img" src="./img/unsplash-headshot.jpg" alt="headshot image">
+        <img class="main__title-tile__img" src="./img/${el.School}.jpg" alt="headshot image">
         <h2>${el.name}</h2>
         <h3>${el.jobTitle}</h3>
       </div>
@@ -55,9 +59,12 @@ let profilesHTML = profiles.map(function(el) {
         <p><i class="fab fa-linkedin"></i>${el.LinkedInUrl}</p>
       </div>
   </div>`
+  return profile;
   ;
 });
 
-console.log(profilesHTML);
-
-$(".template-hook").append(profilesHTML);
+//this appends the profileHTML object to the div in HTMl with the class "template"
+$(".template").append(profilesHTML);
+console.log('script working');
+}
+)
