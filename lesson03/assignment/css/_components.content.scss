@@ -4,14 +4,22 @@
 //made the font color greyish to match rendering
 body{
   color: $font-color
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
+  // flex-shrink: 0;
+  // overflow: hidden;
 }
 
 html {
     box-sizing: border-box;
 }
 
+// .template{
+//   display: flex;
+//   flex-direction: column;
+//   flex-shrink: 0;
+//   overflow: hidden;
+// }
 
 *,
 *:after,
