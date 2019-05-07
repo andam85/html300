@@ -1,3 +1,6 @@
+//I had to inlude this mixin callout here too else gulp wouldn't work.
+@import 'components.mixins';
+
 html {
     box-sizing: border-box;
 }
@@ -8,6 +11,59 @@ html {
     box-sizing: inherit;
 }
 
+a,p {
+  text-decoration: none;
+  color: $white;
+}
+
+
 .main {
-    padding: 2rem;
+    // padding: 2rem;
+    display: grid;
+
+  &__header {
+    @include flexCenter;
+    height:100px;
+    background-color: $red;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  &__navbar {
+    @include flexNav;
+    height:60px;
+    background-color: $green;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  &__sidebar {
+    @include flexCenter;
+    height:500px;
+    background-color: $purple;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  &__body {
+    @include flexCenter;
+    height:500px;
+    background-color: $orange;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+  &__footer {
+    @include flexCenter;
+    height:100px;
+    background-color: $blue;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
 }
