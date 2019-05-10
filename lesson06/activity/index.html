@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+      <style media="screen">
+      .btn.disabled {
+      pointer-events: auto;
+      }
+      </style>
+
+      <script type="text/javascript">
+      function firstClick() {
+        $("#2").removeClass("btn-secondary inactive").addClass("btn-success").removeAttr("disabled");
+        $("#2").tooltip('disable');
+      };
+      function secondClick(){
+        $("form").submit();
+      }
+
+      $(document).ready(function() {
+      $("#1").click(firstClick);
+      $("#2").click(secondClick);
+      });
+      </script>
+
+
+  </head>
+  <body>
+    <form class="" action="index.html" method="post">
+      <button id="1" type="button" class="btn btn-primary" data-toggle="button" active onclick="firstClick()">click me</button>
+      <button id="2" class="btn btn-secondary inactive" disabled data-toggle="tooltip" title="click the 'click me' button first" type="button">Submit</button>
+    </form>
+  </body>
+</html>
