@@ -1,0 +1,6 @@
+/* added this to remove the rounded buttons */
+* {
+  border-radius: 0 !important;
+}
+/* I had to add this so there's space for my fixed nav bar */
+body { padding-top: 60px; }
