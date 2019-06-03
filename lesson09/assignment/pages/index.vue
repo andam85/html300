@@ -1,35 +1,45 @@
 <template>
-  <section class="container">
-    <div>
-      <div class="app">
-        <!-- {if ({info.length > 0}) {greet()}} -->
-        {{ info }}
-      </div>
-      <logo />
-      <h1 class="title">
-        assignment
-      </h1>
-      <h2 class="subtitle">
-        My prime Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
+  <div class="card">
+    <div v-for="(player, pick) in rbList">
+      <b-button v-b-toggle="'collapse-'+ pick" variant="primary">{{player.posRank}}. {{player.Name}}</b-button>
+      <b-collapse :id="'collapse-'+pick" class="mt-2">
+        <b-card>
+          <ul>
+            <li><p class="card-text">Team: {{player.Team}}</p></li>
+            <li><p class="card-text">Average Auction Value: {{player.Value}}</p></li>
+            <li><p class="card-text">Average Draft Position: {{player.pick}}</p></li>
+            <li><p class="card-text">Player's Positional Rank: {{player.posRank}}</p></li>
+          </ul>
+
+        </b-card>
+     </b-collapse>
     </div>
-  </section>
+  </div>
+<!-- <div class="">
+  <div v-for="(player, pick) in rbList" class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" :href="'#collapse-'+pick" >{{ player.Name }}</a>
+          </h4>
+        </div>
+        <div :id="'collapse-'+pick" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <ul>
+              <li>Player Team: {{ (player.Team) }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+</div> -->
+
+
+
 </template>
 
 <script>
 import Vue from 'vue'
+import ff from '../static/ff.json';
 
 // let state = Vue.observable({
 //   dataArray : []
@@ -50,10 +60,18 @@ import axios from 'axios'
 
 export default {
 
+
  data() {
 
    return {
      info: [],
+     ffJson: ff,
+     wrList: ff.filter(d => d.Position ==="WR"),
+     rbList: ff.filter(d => d.Position ==="RB"),
+     qbList: ff.filter(d => d.Position ==="QB"),
+     TEList: ff.filter(d => d.Position ==="TE"),
+     index: ff.pick
+
      // test: null
    }
 
