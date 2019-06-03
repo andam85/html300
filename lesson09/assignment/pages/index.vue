@@ -1,6 +1,10 @@
 <template>
   <section class="container">
     <div>
+      <div class="app">
+        <!-- {if ({info.length > 0}) {greet()}} -->
+        {{ info }}
+      </div>
       <logo />
       <h1 class="title">
         assignment
@@ -25,11 +29,17 @@
 </template>
 
 <script>
+import Vue from 'vue'
 
-let wrarray = [];
-let qbarray =[];
-let rbarray = [];
-let tearray = [];
+// let state = Vue.observable({
+//   dataArray : []
+// })
+
+  let dataArray =[];
+// let wrArray = [];
+// let qbArray =[];
+// let rbArray = [];
+// let teArray = [];
 
 
 
@@ -43,55 +53,88 @@ export default {
  data() {
 
    return {
-
-     test: "Hello"
-
+     info: [],
+     // test: null
    }
 
  },
 
- created: function() {
- //   var i;
- //   for (i=1; i<18; i++){
- //     axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=weekStats&season=2018&format=json&position=WR&week=${i}`)
- //     .then(response => {
- //       dataarray.push(response.data)
- //
- //
- //     })
- //   }
- //   console.log(dataarray);
-// var positions =["WR", "RB", "QB", "TE", "K"];
-// positions.forEach(function(e){
-//     axios.get(`'https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position='+e`)
-//       .then(response => {
-//       dataarray.push(response.data)
-//       }
-//       )
-// }
-
-    axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=WR`)
-    .then(response => {
-      wrarray.push(response.data)
-    })
-    axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=QB`)
-    .then(response => {
-      qbarray.push(response.data)
-    })
-    axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=RB`)
-    .then(response => {
-      rbarray.push(response.data)
-    })
-    axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=TE`)
-    .then(response => {
-      tearray.push(response.data)
-    })
+ // created: function() {
+   // var i;
+   // for (i=1; i<18; i++){
+   //   axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=weekStats&season=2018&format=json&position=WR&week=${i}`)
+   //   .then(response => {
+   //     dataArray.push(response.data)
+   //
+   //
+   //   })
+   // };
+   //
+   //
+   // console.log("this data array: ",dataArray);
+   // for( let e of dataArray){
+   //   console.log("e vals: ", e)
+   // }
 
 
-console.log(wrarray);
-console.log(qbarray);
-console.log(rbarray);
-console.log(tearray);
+
+     mounted () {
+     var positions =["WR", "RB", "QB", "TE", "K"];
+     for (let e of positions){
+       // console.log("position", e)
+      axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=${e}`)
+      .then(response => {
+        // let responseText = response.data.text();
+        // let temp = response.data;
+        // console.log("response", temp)
+        for (let x of response.data.players) {
+          console.log('x', x)
+        //   for (let player of x){
+        //
+        //
+        //   console.log('player data', player)
+        // }
+        let player = {
+          name: x.name,
+          position: x.position,
+          points: x.seasonPts
+        }
+        this.info.push(player)
+        }
+
+      }
+      )
+}
+},
+
+
+// console.log("thisnewdata", {info})
+
+
+
+
+//     axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=WR`)
+//     .then(response => {
+//       wrarray.push(response.data)
+//     })
+//     axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=QB`)
+//     .then(response => {
+//       qbarray.push(response.data)
+//     })
+//     axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=RB`)
+//     .then(response => {
+//       rbarray.push(response.data)
+//     })
+//     axios.get(`https://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2018&format=json&position=TE`)
+//     .then(response => {
+//       tearray.push(response.data)
+//     })
+//
+//
+// console.log(wrarray);
+// console.log(qbarray);
+// console.log(rbarray);
+// console.log(tearray);
 
 
 
@@ -130,21 +173,26 @@ console.log(tearray);
 
 
 
- },
+ // },
 
 
 
  methods: {
 
-   greet: function() {
+   // greet: function() {
+   //
+   //   this.test = "Hello Again";
+   //
+   // }
 
-     this.test = "Hello Again";
-
-   }
+   // output : function(){
+   //   console.log("running function")
+   // }
 
  }
 
 }
+
 
 
 </script>
