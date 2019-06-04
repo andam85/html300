@@ -1,39 +1,79 @@
 <template>
-  <div class="card">
-    <div v-for="(player, pick) in rbList">
-      <b-button v-b-toggle="'collapse-'+ pick" variant="primary">{{player.posRank}}. {{player.Name}}</b-button>
-      <b-collapse :id="'collapse-'+pick" class="mt-2">
-        <b-card>
-          <ul>
-            <li><p class="card-text">Team: {{player.Team}}</p></li>
-            <li><p class="card-text">Average Auction Value: {{player.Value}}</p></li>
-            <li><p class="card-text">Average Draft Position: {{player.pick}}</p></li>
-            <li><p class="card-text">Player's Positional Rank: {{player.posRank}}</p></li>
-          </ul>
-
-        </b-card>
-     </b-collapse>
-    </div>
-  </div>
-<!-- <div class="">
-  <div v-for="(player, pick) in rbList" class="panel panel-default">
-        <div class="panel-heading">
-          <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion" :href="'#collapse-'+pick" >{{ player.Name }}</a>
-          </h4>
-        </div>
-        <div :id="'collapse-'+pick" class="panel-collapse collapse in">
-          <div class="panel-body">
-            <ul>
-              <li>Player Team: {{ (player.Team) }}</li>
-            </ul>
-          </div>
+  <b-container class="bv-example-row">
+  <b-row>
+    <b-col>  <div class="card">
+        <h2>Top Running Backs</h2>
+        <div v-for="(player, pick) in rbList">
+          <b-button class="btn-block" variant="outline-dark"  v-b-toggle="'rbCollapse-'+ pick">{{player.posRank}}. {{player.Name}}</b-button>
+          <b-collapse :id="'rbCollapse-'+pick" class="mt-2">
+            <b-card>
+              <ul class="list-group">
+                <li class="list-group-item">Team: {{player.Team}}</li>
+                 <li class="list-group-item">Average Auction Value: {{player.Value}}</li>
+                 <li class="list-group-item">Average Draft Position: {{player.pick}}</li>
+                 <li class="list-group-item">Player's Positional Rank: {{player.posRank}}</li>
+              </ul>
+            </b-card>
+         </b-collapse>
         </div>
       </div>
-
-</div> -->
-
-
+    </b-col>
+    <b-col>
+       <div class="card">
+        <h2>Top Wide Recievers</h2>
+        <div v-for="(player, pick) in wrList">
+          <b-button class="btn-block" variant="outline-dark" v-b-toggle="'wrCollapse-'+ pick">{{player.posRank}}. {{player.Name}}</b-button>
+          <b-collapse :id="'wrCollapse-'+pick" class="mt-2">
+            <b-card>
+              <ul class="list-group">
+                <li class="list-group-item">Team: {{player.Team}}</li>
+                 <li class="list-group-item">Average Auction Value: {{player.Value}}</li>
+                 <li class="list-group-item">Average Draft Position: {{player.pick}}</li>
+                 <li class="list-group-item">Player's Positional Rank: {{player.posRank}}</li>
+              </ul>
+            </b-card>
+         </b-collapse>
+        </div>
+      </div>
+    </b-col>
+    <b-col>
+      <div class="card">
+       <h2>Top Tight <br> Ends</h2>
+       <div v-for="(player, pick) in teList">
+         <b-button class="btn-block" variant="outline-dark"  v-b-toggle="'teCollapse-'+ pick">{{player.posRank}}. {{player.Name}}</b-button>
+         <b-collapse :id="'teCollapse-'+pick" class="mt-2">
+           <b-card>
+             <ul class="list-group">
+               <li class="list-group-item">Team: {{player.Team}}</li>
+                <li class="list-group-item">Average Auction Value: {{player.Value}}</li>
+                <li class="list-group-item">Average Draft Position: {{player.pick}}</li>
+                <li class="list-group-item">Player's Positional Rank: {{player.posRank}}</li>
+             </ul>
+           </b-card>
+        </b-collapse>
+       </div>
+     </div>
+    </b-col>
+    <b-col>
+      <div class="card">
+       <h2>Top <br> Quarterbacks</h2>
+       <div v-for="(player, pick) in qbList">
+         <b-button class="btn-block" variant="outline-dark"  v-b-toggle="'qbCollapse-'+ pick">{{player.posRank}}. {{player.Name}}</b-button>
+         <b-collapse :id="'qbCollapse-'+pick" class="mt-2">
+           <b-card>
+             <ul class="list-group">
+               <li class="list-group-item">Team: {{player.Team}}</li>
+                <li class="list-group-item">Average Auction Value: {{player.Value}}</li>
+                <li class="list-group-item">Average Draft Position: {{player.pick}}</li>
+                <li class="list-group-item">Player's Positional Rank: {{player.posRank}}</li>
+             </ul>
+           </b-card>
+        </b-collapse>
+       </div>
+     </div>
+    </b-col>
+  </b-row>
+</b-container>
 
 </template>
 
@@ -69,7 +109,7 @@ export default {
      wrList: ff.filter(d => d.Position ==="WR"),
      rbList: ff.filter(d => d.Position ==="RB"),
      qbList: ff.filter(d => d.Position ==="QB"),
-     TEList: ff.filter(d => d.Position ==="TE"),
+     teList: ff.filter(d => d.Position ==="TE"),
      index: ff.pick
 
      // test: null
