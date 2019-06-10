@@ -18,6 +18,9 @@
 </template>
 
 <script>
+import header from './components/header.vue';
+Vue.component('navbar',navbar)
+
 export default {
   name: 'app',
   data () {

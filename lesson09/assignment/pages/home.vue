@@ -2,6 +2,7 @@
 <!-- home.vue -->
   <template>
      <div>
+       <navbar></navbar>
        <div class="jumbotron jumbotron-fluid">
          <div class="container">
            <h1 class="display-3">Fantasy Football Draftkit</h1>
@@ -12,7 +13,12 @@
    </template>
 
 <script>
-  export default{
 
+import navbar from '../components/navbar'
+export default {
+  components: {
+    navbar
   }
+}
+
 </script>
