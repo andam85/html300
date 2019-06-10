@@ -24,7 +24,7 @@ const router = new VueRouter({
   ]
 });
 
-
+Vue.component('app-header',header)
 
 new Vue({
   router,

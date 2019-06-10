@@ -1,7 +1,7 @@
 <template>
-
-    <h1><slot>An's</slot>Fantasy Football App</h1>
-
+  <div>
+    <h1> <slot></slot> Fantasy Football App</h1>
+  </div>
 </template>
 
 <script>
