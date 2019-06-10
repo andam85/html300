@@ -5,7 +5,7 @@
 </div> -->
 
   <div id="app">
-    <header></header>
+    <app-header>An's</app-header>
     <nav class="navbar navbar-dark bg-dark d-flex justify-content-start fixed-top">
 
     <a href="#" class="btn btn-dark" <router-link to="/" class="nav-link">Home</router-link></a>
